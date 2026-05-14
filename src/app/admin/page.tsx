@@ -36,7 +36,7 @@ export default function AdminDashboard() {
         className="mb-8"
       >
         <h1 className="font-display text-3xl font-bold text-[#ede0d3] mb-2">Dashboard</h1>
-        <p className="text-sm text-[#7a6558]">Ringkasan aktivitas Gudang Godong Kitchen.</p>
+        <p className="text-sm text-[#7a6558]">Ringkasan aktivitas Warung Makan GG. Gudang Godong.</p>
       </motion.div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">

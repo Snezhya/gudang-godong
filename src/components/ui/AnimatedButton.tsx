@@ -17,8 +17,8 @@ export default function AnimatedButton({
   ...props 
 }: AnimatedButtonProps) {
   
-  const baseClasses = "relative overflow-hidden rounded-xl font-medium transition-all flex items-center justify-center gap-2 group";
-  const widthClass = fullWidth ? "w-full" : "w-auto px-6 py-3 md:px-8 md:py-4";
+  const baseClasses = "relative overflow-hidden rounded-xl font-medium transition-all flex items-center justify-center gap-2 group min-h-[44px]";
+  const widthClass = fullWidth ? "w-full py-3.5" : "w-auto px-5 py-3 sm:px-7 sm:py-3.5";
   
   const getVariantStyles = () => {
     switch (variant) {

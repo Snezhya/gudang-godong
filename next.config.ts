@@ -6,6 +6,18 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'ui-avatars.com',
+        pathname: '/api/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+    unoptimized: false,
   },
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],

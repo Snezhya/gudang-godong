@@ -33,7 +33,7 @@ export default function CartSidebar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-[59] bg-black/60 backdrop-blur-sm"
             onClick={closeCart}
           />
         )}
@@ -48,10 +48,11 @@ export default function CartSidebar() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-            className="fixed right-0 top-0 bottom-0 z-50 w-full max-w-sm flex flex-col"
+            className="fixed right-0 top-0 bottom-0 z-[60] w-full xs:w-[380px] max-w-full flex flex-col"
             style={{
               background: '#1a1616',
               borderLeft: '1px solid rgba(201,169,110,0.1)',
+              width: 'min(100vw, 380px)',
             }}
           >
             {/* Header */}

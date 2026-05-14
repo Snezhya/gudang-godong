@@ -9,7 +9,7 @@ export default function FloatingWA() {
   const pathname = usePathname();
   const { settings } = useStore();
   const phone = settings.waNumber.replace(/\D/g, '');
-  const url   = `https://wa.me/62${phone.replace(/^0/, '')}?text=${encodeURIComponent('Halo Gudang Godong Kitchen, saya ingin memesan... 😊')}`;
+  const url   = `https://wa.me/62${phone.replace(/^0/, '')}?text=${encodeURIComponent('Halo Warung Makan GG. Gudang Godong, saya ingin memesan... 😊')}`;
 
   if (pathname?.startsWith('/admin')) return null;
 
@@ -23,7 +23,7 @@ export default function FloatingWA() {
       transition={{ delay: 3.2, type: 'spring', bounce: 0.4 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      className="wa-pulse fixed bottom-6 right-4 z-50 w-13 h-13 rounded-full flex items-center justify-center shadow-2xl"
+      className="wa-pulse fixed bottom-6 right-4 z-40 flex items-center justify-center shadow-2xl rounded-full"
       style={{
         width: 52,
         height: 52,

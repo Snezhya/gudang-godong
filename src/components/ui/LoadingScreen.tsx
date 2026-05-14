@@ -59,20 +59,20 @@ export default function LoadingScreen() {
             {/* Title */}
             <div className="text-center">
               <motion.h1
-                className="font-display text-3xl font-bold gradient-text"
+                className="font-display text-2xl font-bold gradient-text"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
               >
-                Gudang Godong
+                GG. Gudang Godong
               </motion.h1>
               <motion.p
-                className="text-[#c9a96e] text-sm tracking-[0.25em] uppercase mt-1"
+                className="text-[#c9a96e] text-xs tracking-[0.2em] uppercase mt-1"
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
               >
-                Kitchen
+                Warung Makan
               </motion.p>
             </div>
 

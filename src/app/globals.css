@@ -18,12 +18,12 @@
 
   --orange:         #c8612a;
   --orange-lit:     #e07a40;
-  --orange-glow:    rgba(200, 97, 42, 0.2);
+  --orange-glow:    rgba(200, 97, 42, 0.1);
 
   --gold:           #c9a96e;
   --gold-lit:       #dfc08a;
-  --gold-dim:       rgba(201, 169, 110, 0.5);
-  --gold-glow:      rgba(201, 169, 110, 0.15);
+  --gold-dim:       rgba(201, 169, 110, 0.3);
+  --gold-glow:      rgba(201, 169, 110, 0.08);
 
   --warm-glow:      rgba(200, 97, 42, 0.12);
   --warm-glow-lg:   rgba(200, 97, 42, 0.06);
@@ -33,18 +33,18 @@
   --text-muted:     #7a6558;
   --text-gold:      #c9a96e;
 
-  --border-subtle:  rgba(201, 169, 110, 0.08);
-  --border-warm:    rgba(201, 169, 110, 0.15);
-  --border-maroon:  rgba(122, 30, 30, 0.3);
+  --border-subtle:  rgba(201, 169, 110, 0.05);
+  --border-warm:    rgba(201, 169, 110, 0.1);
+  --border-maroon:  rgba(122, 30, 30, 0.2);
 
   --radius-sm:  6px;
   --radius-md:  12px;
   --radius-lg:  20px;
   --radius-xl:  28px;
 
-  --shadow-card:   0 4px 30px rgba(0,0,0,0.4);
-  --shadow-glow:   0 0 40px rgba(200, 97, 42, 0.15);
-  --shadow-maroon: 0 0 30px rgba(122, 30, 30, 0.3);
+  --shadow-card:   0 4px 30px rgba(0,0,0,0.2);
+  --shadow-glow:   0 0 40px rgba(200, 97, 42, 0.08);
+  --shadow-maroon: 0 0 30px rgba(122, 30, 30, 0.15);
 }
 
 @theme inline {
@@ -159,7 +159,7 @@ body {
    WARM GLOW EFFECTS
 ======================== */
 .glow-warm {
-  box-shadow: 0 0 60px var(--warm-glow), 0 0 120px var(--warm-glow-lg);
+  box-shadow: 0 0 40px var(--warm-glow), 0 0 80px var(--warm-glow-lg);
 }
 
 .glow-gold {
@@ -447,11 +447,65 @@ body {
 /* ========================
    RESPONSIVE HELPERS
 ======================== */
+.container {
+  width: 100%;
+  max-width: 1280px; /* max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem; /* px-6 */
+  padding-right: 1.5rem; /* px-6 */
+}
+
 @media (max-width: 640px) {
   .hide-mobile { display: none !important; }
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 @media (min-width: 1920px) {
   .container { max-width: 1600px !important; }
+}
+
+/* ========================
+   HIDE SCROLLBAR UTILITY
+======================== */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
+}
+
+/* ========================
+   SAFE AREA (iPhone notch / Android nav bar)
+======================== */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .safe-bottom {
+    padding-bottom: calc(env(safe-area-inset-bottom) + 16px);
+  }
+}
+
+/* ========================
+   MOBILE OVERFLOW FIX
+======================== */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* ========================
+   TOUCH DEVICE: DISABLE HOVER LIFTS
+======================== */
+@media (hover: none) {
+  .glass-card:hover {
+    transform: none !important;
+  }
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: none !important;
+  }
 }
 
 /* ========================
@@ -602,4 +656,75 @@ body {
 @media print {
   nav, footer, .floating-wa, .cart-sidebar { display: none !important; }
   body { background: white; color: black; }
+}
+
+/* ========================
+   CUSTOM SCROLLBAR (admin panels)
+======================== */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--maroon) var(--bg-primary);
+}
+.custom-scrollbar::-webkit-scrollbar { width: 5px; height: 5px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: var(--bg-primary); }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--maroon), var(--orange));
+  border-radius: 4px;
+}
+
+/* ========================
+   MOBILE MENU GRID FIX
+======================== */
+@media (max-width: 360px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  /* Ensure cards don't overflow tiny screens */
+  .glass-card {
+    min-width: 0;
+  }
+}
+
+/* ========================
+   INPUT DATE/TIME DARK THEME
+======================== */
+input[type="date"],
+input[type="time"] {
+  color-scheme: dark;
+}
+
+/* ========================
+   SELECT DARK THEME
+======================== */
+select.input-dark {
+  background-image: none;
+  cursor: pointer;
+}
+select.input-dark option {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+/* ========================
+   IFRAME RESPONSIVE
+======================== */
+.map-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+.map-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+
+/* ========================
+   MODAL SCROLL LOCK
+======================== */
+body.modal-open {
+  overflow: hidden;
+  touch-action: none;
 }

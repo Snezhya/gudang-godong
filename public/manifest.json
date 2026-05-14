@@ -1,7 +1,7 @@
 {
-  "name": "Gudang Godong Kitchen",
-  "short_name": "GG Kitchen",
-  "description": "Masakan rumahan hangat dengan cita rasa premium. Pesan antar, ambil sendiri, atau booking tempat langsung.",
+  "name": "Warung Makan GG. Gudang Godong",
+  "short_name": "GG. Gudang Godong",
+  "description": "Warung Makan GG. Gudang Godong - Menyajikan masakan rumahan autentik dengan cita rasa premium. Pesan antar, ambil sendiri, atau booking tempat langsung.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0d0b0b",

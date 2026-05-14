@@ -4,10 +4,17 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function CustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
   const [isHovering, setIsHovering] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
+    // Only show on true pointer devices (not touch)
+    const hasPointer = window.matchMedia('(pointer: fine)').matches;
+    const isLarge = window.innerWidth >= 1024;
+    if (!hasPointer || !isLarge) return;
+    setIsDesktop(true);
+
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
@@ -35,15 +42,12 @@ export default function CustomCursor() {
     };
   }, []);
 
-  // Hide on small devices
-  if (typeof window !== 'undefined' && window.innerWidth < 1024) {
-    return null;
-  }
+  if (!isDesktop) return null;
 
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[100] mix-blend-screen hidden lg:block"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[100] mix-blend-screen"
         style={{
           border: '1px solid rgba(201,169,110,0.5)',
           background: isHovering ? 'rgba(212,98,42,0.15)' : 'transparent',
@@ -63,7 +67,7 @@ export default function CustomCursor() {
         }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-[100] hidden lg:block"
+        className="fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-[100]"
         style={{
           background: '#c8a96e',
           translateX: '-50%',

@@ -52,9 +52,9 @@ export default function BookingSection() {
   };
 
   return (
-    <section ref={sectionRef} id="booking" className="py-20 md:py-28 relative border-t border-white/5">
+    <section ref={sectionRef} id="booking" className="py-16 md:py-24 relative border-t border-white/5">
       <div className="absolute inset-0 pointer-events-none" style={{ background: '#0d0b0b' }} />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+      <div className="container relative z-10 max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={revealed ? { opacity: 1, y: 0 } : {}}

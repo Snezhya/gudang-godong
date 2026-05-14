@@ -24,7 +24,7 @@ export default function AdminSidebar() {
   const SidebarContent = () => (
     <div className="flex flex-col h-full bg-[#130f0f] border-r border-white/5 w-64 shadow-2xl">
       <div className="p-6 border-b border-white/5">
-        <h2 className="font-display font-bold text-xl text-[#ede0d3] tracking-wide">GG Kitchen</h2>
+        <h2 className="font-display font-bold text-xl text-[#ede0d3] tracking-wide">GG. Gudang Godong</h2>
         <p className="text-[10px] text-[#c9a96e] mt-1.5 uppercase tracking-widest font-semibold">Admin Workspace</p>
       </div>
 

@@ -22,7 +22,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex" style={{ background: '#0d0b0b', color: '#ede0d3' }}>
       <AdminSidebar />
-      <main className="flex-1 lg:ml-64 min-w-0 p-6 md:p-10 max-h-screen overflow-y-auto custom-scrollbar">
+      <main className="flex-1 lg:ml-64 min-w-0 p-4 sm:p-6 md:p-10 min-h-screen overflow-y-auto custom-scrollbar">
         {children}
       </main>
     </div>

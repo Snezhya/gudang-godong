@@ -13,14 +13,14 @@ import LoadingScreen from '@/components/ui/LoadingScreen';
 import CustomCursor from '@/components/ui/CustomCursor';
 
 export const metadata: Metadata = {
-  title: 'Gudang Godong Kitchen — Masakan Rumahan Premium',
-  description: 'Masakan rumahan hangat dengan cita rasa premium. Pesan antar, ambil sendiri, atau booking tempat langsung.',
-  keywords: ['gudang godong kitchen', 'warung makan', 'nasi pecel', 'ayam geprek', 'karanganyar'],
+  title: "Warung Makan GG. Gudang Godong",
+  description: "Warung Makan GG. Gudang Godong - Menyajikan masakan rumahan autentik dengan cita rasa premium dan suasana elegan.",
   manifest: '/manifest.json',
+  themeColor: '#0d0b0b',
   appleWebApp: {
     capable: true,
-    statusBarStyle: 'black-translucent',
-    title: 'GG Kitchen',
+    statusBarStyle: 'default',
+    title: "GG. Gudang Godong",
   },
 };
 

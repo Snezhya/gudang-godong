@@ -22,7 +22,7 @@ export default function AdminLogin() {
     <div className="min-h-screen flex items-center justify-center p-4 relative" style={{ background: '#0d0b0b' }}>
       {/* Background glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-10 blur-[100px]" style={{ background: 'radial-gradient(circle, #c8612a 0%, transparent 70%)' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[320px] sm:h-[320px] md:w-[420px] md:h-[420px] lg:w-[520px] lg:h-[520px] rounded-full opacity-10 blur-[100px]" style={{ background: 'radial-gradient(circle, #c8612a 0%, transparent 70%)' }} />
       </div>
 
       <motion.div
@@ -35,7 +35,7 @@ export default function AdminLogin() {
           
           <div className="text-center mb-8">
             <h1 className="font-display text-2xl font-bold text-[#ede0d3] mb-2">Admin Panel</h1>
-            <p className="text-sm text-[#7a6558]">Masuk untuk mengelola restoran</p>
+            <p className="text-sm text-[#7a6558]">Masuk untuk mengelola warung</p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-5">

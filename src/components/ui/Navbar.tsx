@@ -72,7 +72,7 @@ export default function Navbar() {
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-18">
+          <div className="flex items-center justify-between h-16 lg:h-[72px]">
             {/* Logo */}
             <button onClick={() => scrollTo('#home')} className="flex items-center gap-2.5 group">
               <div
@@ -81,9 +81,13 @@ export default function Navbar() {
               >
                 <Leaf size={16} className="text-white" />
               </div>
-              <div className="leading-none">
-                <span className="font-display font-bold text-base gradient-text">Gudang Godong</span>
-                <span className="block text-[10px] text-[#7a6558] tracking-widest uppercase">Kitchen</span>
+              <div className="flex flex-col">
+                <span className="font-display font-bold text-lg md:text-xl text-[#ede0d3] leading-tight tracking-wide">
+                  GG. Gudang Godong
+                </span>
+                <span className="text-[#c9a96e] text-[10px] md:text-[11px] tracking-[0.2em] uppercase font-semibold">
+                  Warung Makan
+                </span>
               </div>
             </button>
 

@@ -106,9 +106,9 @@ export default function OrderSection() {
   };
 
   return (
-    <section ref={sectionRef} id="order" className="py-20 md:py-28 relative border-t border-white/5">
+    <section ref={sectionRef} id="order" className="py-16 md:py-24 relative border-t border-white/5">
       <div className="absolute inset-0 pointer-events-none" style={{ background: '#0d0b0b' }} />
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+      <div className="container relative z-10 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={revealed ? { opacity: 1, y: 0 } : {}}
@@ -124,7 +124,7 @@ export default function OrderSection() {
             initial={{ opacity: 0, x: -30 }}
             animate={revealed ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass-card p-6 rounded-2xl flex flex-col gap-6 lg:col-span-3"
+            className="glass-card p-6 md:p-8 rounded-2xl flex flex-col gap-8 lg:col-span-3"
           >
             {/* Tipe Pesanan */}
             <div>
@@ -263,7 +263,7 @@ export default function OrderSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={revealed ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="glass-card p-6 rounded-2xl flex flex-col lg:col-span-2 h-fit sticky top-24"
+            className="glass-card p-6 md:p-8 rounded-2xl flex flex-col lg:col-span-2 h-fit lg:sticky lg:top-24"
           >
             <h3 className="font-display font-semibold text-lg text-[#ede0d3] mb-4 border-b border-white/10 pb-3">
               Rincian Pesanan

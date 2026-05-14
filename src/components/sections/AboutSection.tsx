@@ -73,7 +73,7 @@ export default function AboutSection() {
   const counts = [c0, c1, c2, c3];
 
   return (
-    <section ref={sectionRef} id="about" className="py-20 md:py-28 relative overflow-hidden">
+    <section ref={sectionRef} id="about" className="py-16 md:py-24 relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -84,55 +84,53 @@ export default function AboutSection() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={revealed ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-16 md:mb-20"
         >
-          <p className="text-[#c8612a] text-sm font-semibold tracking-widest uppercase mb-3">— Tentang Kami —</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-[#ede0d3] mb-4">
-            Rasa Rumahan, Kualitas Premium
+          <p className="text-[#c8612a] text-xs font-bold tracking-[0.2em] uppercase mb-4">— Tentang Kami —</p>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#ede0d3] mb-6 leading-tight">
+            Cita Rasa Autentik,<br className="hidden sm:block"/> Kualitas Premium
           </h2>
-          <p className="text-[#7a6558] text-sm max-w-lg mx-auto leading-relaxed">
-            Gudang Godong Kitchen hadir dengan misi sederhana: menyajikan masakan rumahan Jawa yang hangat, lezat, dan terjangkau — di tempat yang nyaman untuk semua kalangan.
+          <p className="text-[#b8a090] text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+            Warung Makan GG. Gudang Godong hadir dengan misi sederhana: menyajikan masakan rumahan autentik Indonesia yang hangat, lezat, dan terjangkau — dalam balutan suasana yang elegan dan nyaman.
           </p>
-          <div className="section-divider mt-8" />
+          <div className="section-divider mt-12 max-w-sm mx-auto opacity-50" />
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left — about text + pillars */}
-          <div>
+          <div className="flex flex-col gap-8">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={revealed ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="glass-card p-6 mb-6"
+              className="glass-card p-6 md:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6"
             >
-              <div className="flex items-start gap-4">
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 text-xl"
-                  style={{ background: 'linear-gradient(135deg, #7a1e1e, #c8612a)' }}
-                >
-                  🍃
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-semibold text-[#ede0d3] mb-2">Cerita Kami</h3>
-                  <p className="text-[#7a6558] text-sm leading-relaxed">
-                    Berawal dari dapur rumahan yang penuh kehangatan, Gudang Godong Kitchen kini melayani ratusan pelanggan setiap harinya. Kami percaya bahwa makanan terbaik lahir dari tangan yang memasak dengan hati.
-                  </p>
-                </div>
+              <div
+                className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 text-2xl shadow-inner border border-white/10"
+                style={{ background: 'linear-gradient(135deg, #7a1e1e, #c8612a)' }}
+              >
+                🍃
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-display text-xl font-semibold text-[#ede0d3] mb-2">Cerita Kami</h3>
+                <p className="text-[#b8a090] text-sm leading-relaxed">
+                  Berawal dari resep keluarga yang penuh kehangatan, Gudang Godong kini melayani ratusan pelanggan. Kami percaya masakan terbaik lahir dari tangan yang memasak dengan hati.
+                </p>
               </div>
             </motion.div>
 
             {/* Pillars */}
-            {[
-              { emoji: '🏡', title: 'Nuansa Hangat', desc: 'Tempat makan yang nyaman, terasa seperti di rumah sendiri.' },
-              { emoji: '👨‍🍳', title: 'Masakan Rumahan', desc: 'Resep tradisional Jawa yang diwariskan turun-temurun.' },
-              { emoji: '👨‍👩‍👧', title: 'Cocok Semua Usia', desc: 'Dari anak-anak hingga orang tua, semua menu cocok untuk keluarga.' },
-            ].map((p, i) => (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-6 pl-2">
+              {[
+                { emoji: '🏡', title: 'Nuansa Hangat', desc: 'Desain elegan namun terasa akrab seperti di rumah sendiri.' },
+                { emoji: '👨‍🍳', title: 'Resep Autentik', desc: 'Warisan rempah Nusantara yang dipertahankan turun-temurun.' },
+              ].map((p, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, x: -20 }}
@@ -147,6 +145,7 @@ export default function AboutSection() {
                 </div>
               </motion.div>
             ))}
+            </div>
           </div>
 
           {/* Right — stats + reviews */}

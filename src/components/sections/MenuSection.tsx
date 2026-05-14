@@ -59,7 +59,7 @@ export default function MenuSection() {
   }, [addItem, openCart]);
 
   return (
-    <section ref={sectionRef} id="menu" className="py-20 md:py-28 relative">
+    <section ref={sectionRef} id="menu" className="py-16 md:py-24 relative">
       {/* Glow background */}
       <div className="absolute inset-0 pointer-events-none">
         <div
@@ -70,23 +70,23 @@ export default function MenuSection() {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container relative z-10">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={revealed ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
           <SectionTitle 
             title="Menu Andalan Kami"
             subtitle="— Pilihan Menu —"
             align="center"
           />
-          <p className="text-[#7a6558] max-w-md mx-auto text-sm leading-relaxed mt-4">
-            Masakan rumahan penuh cita rasa, disiapkan segar setiap hari dengan bahan berkualitas pilihan.
+          <p className="text-[#b8a090] max-w-lg mx-auto text-sm md:text-base leading-relaxed mt-6">
+            Masakan autentik yang disiapkan segar setiap hari dengan bumbu rempah pilihan, menawarkan harmoni rasa premium.
           </p>
-          <div className="section-divider mt-8" />
+          <div className="section-divider mt-12 max-w-xs mx-auto opacity-40" />
         </motion.div>
 
         {/* Search + Filter */}
@@ -94,17 +94,17 @@ export default function MenuSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={revealed ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="flex flex-col sm:flex-row gap-4 mb-8"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8"
         >
           {/* Search */}
-          <div className="relative flex-1 max-w-xs">
+          <div className="relative w-full sm:w-auto sm:flex-1 sm:max-w-xs">
             <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#7a6558]" />
             <input
               type="text"
               placeholder="Cari menu..."
               value={search}
               onChange={e => setSearch(e.target.value)}
-              className="input-dark pl-9 pr-8 text-sm"
+              className="input-dark pl-9 pr-8 text-sm w-full"
             />
             {search && (
               <button
@@ -117,7 +117,7 @@ export default function MenuSection() {
           </div>
 
           {/* Category chips */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 hide-scrollbar">
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 hide-scrollbar flex-shrink-0">
             {CATS.map(cat => (
               <button
                 key={cat.key}
@@ -146,15 +146,16 @@ export default function MenuSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
+              transition={{ duration: 0.3 }}
+              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8"
             >
               {filtered.map((item, i) => (
                 <motion.div
                   key={item.id}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.04, duration: 0.35 }}
+                  transition={{ delay: i * 0.05, duration: 0.4 }}
+                  className="h-full"
                 >
                   <MenuCard item={item} onAdd={handleAdd} />
                 </motion.div>

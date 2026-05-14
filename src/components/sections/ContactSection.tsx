@@ -67,9 +67,9 @@ export default function ContactSection() {
               className="glass-card p-8 rounded-3xl relative overflow-hidden h-full flex flex-col justify-center"
             >
               <div className="absolute -right-10 -top-10 text-[120px] opacity-5 pointer-events-none">📍</div>
-              <h3 className="font-display text-2xl font-bold text-[#ede0d3] mb-2">Gudang Godong Kitchen</h3>
+              <h3 className="font-display text-2xl font-bold text-[#ede0d3] mb-2">Warung Makan GG. Gudang Godong</h3>
               <p className="text-[#b8a090] text-sm leading-relaxed mb-8">
-                Ikuti perjalanan kuliner kami atau sapa kami secara langsung. Kami siap menyambut Anda dengan kehangatan khas rumahan.
+                Ikuti perjalanan kuliner kami atau sapa kami secara langsung. Kami siap menyambut Anda dengan kehangatan khas rumahan autentik.
               </p>
 
               <div className="flex items-start gap-4 p-5 rounded-xl mb-8" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(201,169,110,0.1)' }}>
@@ -104,14 +104,14 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={revealed ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="h-full min-h-[400px] lg:min-h-[500px] rounded-3xl overflow-hidden glass-card p-2"
+            className="h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] rounded-3xl overflow-hidden glass-card p-2"
           >
             <div className="w-full h-full rounded-2xl overflow-hidden relative group">
               <iframe
                 src="https://maps.google.com/maps?q=Rm.+GG.+Gudang+Godong&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
-                style={{ border: 0, minHeight: '400px', filter: 'grayscale(0.6) contrast(1.2) sepia(0.2)' }}
+                style={{ border: 0, minHeight: '280px', filter: 'grayscale(0.6) contrast(1.2) sepia(0.2)' }}
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

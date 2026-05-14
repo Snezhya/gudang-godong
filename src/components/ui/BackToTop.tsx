@@ -27,7 +27,7 @@ export default function BackToTop() {
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           transition={{ duration: 0.3 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-24 right-4 z-40 w-10 h-10 rounded-xl flex items-center justify-center transition-transform hover:scale-110 hover:-translate-y-1"
+          className="fixed bottom-[72px] right-4 z-40 w-10 h-10 rounded-xl flex items-center justify-center transition-transform hover:scale-110 hover:-translate-y-1"
           style={{
             background: 'rgba(28,21,21,0.9)',
             border: '1px solid rgba(201,169,110,0.2)',

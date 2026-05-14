@@ -58,22 +58,16 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
-      {/* Background layers */}
+    <section id="home" className="relative min-h-[100svh] flex items-center justify-center pt-24 pb-16 overflow-hidden">
+      {/* Dynamic Background */}
       <div className="absolute inset-0 z-0">
-        {/* Dark base with warm gradient */}
-        <div
-          className="absolute inset-0"
+        <div className="absolute inset-0 bg-[#0d0b0b]" />
+        
+        {/* Subtle cinematic glow */}
+        <div 
+          className="absolute inset-0 opacity-40 mix-blend-screen pointer-events-none"
           style={{
-            background: `
-              radial-gradient(ellipse 80% 60% at 50% 0%, rgba(122,30,30,0.18) 0%, transparent 70%),
-              radial-gradient(ellipse 60% 50% at 80% 100%, rgba(200,97,42,0.1) 0%, transparent 60%),
-              radial-gradient(ellipse 40% 40% at 20% 50%, rgba(122,30,30,0.08) 0%, transparent 60%),
-              #0d0b0b
-            `,
+            background: 'radial-gradient(circle at 50% 30%, rgba(122,30,30,0.15) 0%, transparent 60%)'
           }}
         />
 
@@ -89,7 +83,7 @@ export default function HeroSection() {
 
         {/* Large glow orbs */}
         <motion.div
-          className="absolute w-[600px] h-[600px] rounded-full"
+          className="absolute rounded-full w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] md:w-[520px] md:h-[520px]"
           style={{
             background: 'radial-gradient(circle, rgba(122,30,30,0.15) 0%, transparent 70%)',
             top: '-10%', left: '50%', transform: 'translateX(-50%)',
@@ -98,7 +92,7 @@ export default function HeroSection() {
           transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className="absolute w-96 h-96 rounded-full"
+          className="absolute rounded-full w-60 h-60 sm:w-72 sm:h-72 md:w-96 md:h-96"
           style={{
             background: 'radial-gradient(circle, rgba(200,97,42,0.08) 0%, transparent 70%)',
             bottom: '10%', right: '5%',
@@ -128,24 +122,27 @@ export default function HeroSection() {
         ))}
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
-        {/* Badge */}
-        <div ref={badgeRef} style={{ opacity: 0 }} className="inline-flex items-center gap-2 mb-6">
-          <div
-            className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium"
-            style={{
-              background: 'rgba(201,169,110,0.08)',
-              border: '1px solid rgba(201,169,110,0.2)',
-              color: '#c9a96e',
-            }}
-          >
-            <span
-              className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${storeOpen ? 'status-dot-open' : 'status-dot-close'}`}
-            />
-            {storeOpen
-              ? `Sedang Buka • Tutup ${settings.closeTime}`
-              : `Sedang Tutup • Buka ${settings.openTime}`}
+      {/* Content Container */}
+      <div className="container relative z-10 text-center px-4">
+        {/* Status Badge */}
+        <div className="flex justify-center mb-8">
+          <div ref={badgeRef} style={{ opacity: 0 }} className="inline-flex items-center gap-2">
+            <div
+              className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium"
+              style={{
+                background: 'rgba(201,169,110,0.08)',
+                border: '1px solid rgba(201,169,110,0.2)',
+                color: '#c9a96e',
+              }}
+            >
+              <span
+                className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${storeOpen ? 'status-dot-open' : 'status-dot-close'}`}
+              />
+              {storeOpen
+                ? `Sedang Buka • Tutup ${settings.closeTime}`
+                : `Sedang Tutup • Buka ${settings.openTime}`}
+                 <span className="text-white hidden sm:inline">• Warung Makan Autentik</span>
+            </div>
           </div>
         </div>
 
@@ -153,53 +150,41 @@ export default function HeroSection() {
         <h1
           ref={titleRef}
           className="font-display font-bold leading-[1.05] mb-6 overflow-hidden"
-          style={{ fontSize: 'clamp(2.6rem, 7vw, 5.5rem)' }}
+          style={{ fontSize: 'clamp(2.5rem, 10vw, 6rem)' }}
         >
-          {'Gudang Godong'.split(' ').map((word, i) => (
+          {'Warung Makan GG.'.split(' ').map((word, i) => (
             <span key={i} className="word inline-block" style={{ opacity: 0 }}>
-              {i === 0 ? (
-                <span className="gradient-text">{word} </span>
-              ) : (
-                <span className="text-[#ede0d3]">{word}</span>
-              )}
-              {i === 0 && ' '}
+              {word}&nbsp;
             </span>
           ))}
-          <br />
-          <span
-            className="word inline-block text-[#c9a96e] font-display italic"
-            style={{ fontSize: '0.7em', opacity: 0 }}
-          >
-            Kitchen
-          </span>
+          <br className="hidden sm:block" />
+          {'Gudang Godong'.split(' ').map((word, i) => (
+            <span key={i + 10} className="word inline-block gradient-text" style={{ opacity: 0 }}>
+              {word}&nbsp;
+            </span>
+          ))}
         </h1>
 
-        {/* Subtitle */}
-        <p
+        <motion.p
           ref={subtitleRef}
-          className="text-[#b8a090] text-lg md:text-xl max-w-xl mx-auto mb-10 leading-relaxed"
-          style={{ opacity: 0 }}
+          className="text-[#b8a090] text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-10 px-2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
         >
-          Masakan rumahan hangat dengan cita rasa premium.
-          <br />
-          <span className="text-[#7a6558] text-base">Pesan antar, ambil sendiri, atau nikmati di tempat.</span>
-        </p>
+          Menyajikan hidangan rumahan autentik Indonesia dengan cita rasa premium, dalam suasana hangat yang elegan. Pesan antar, ambil sendiri, atau reservasi meja Anda sekarang.
+        </motion.p>
 
         {/* CTA Buttons */}
-        <div ref={ctaRef} className="flex flex-wrap items-center justify-center gap-4 mb-16">
-          <div style={{ opacity: 0 }}>
-            <AnimatedButton onClick={() => scrollTo('menu')} variant="primary">
+        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-16 px-4">
+          <div style={{ opacity: 0 }} className="w-full sm:w-auto">
+            <AnimatedButton onClick={() => scrollTo('menu')} variant="primary" className="w-full sm:w-auto px-8 py-3 text-lg">
               <span>🍽</span> Pesan Sekarang
             </AnimatedButton>
           </div>
-          <div style={{ opacity: 0 }}>
-            <AnimatedButton onClick={() => scrollTo('menu')} variant="secondary">
-              Lihat Menu
-            </AnimatedButton>
-          </div>
-          <div style={{ opacity: 0 }}>
-            <AnimatedButton onClick={() => scrollTo('booking')} variant="outline">
-              <Calendar size={15} /> Booking Tempat
+          <div style={{ opacity: 0 }} className="w-full sm:w-auto">
+            <AnimatedButton onClick={() => scrollTo('booking')} variant="outline" className="w-full sm:w-auto px-8 py-3 text-lg">
+              <Calendar size={18} /> Booking Tempat
             </AnimatedButton>
           </div>
         </div>
